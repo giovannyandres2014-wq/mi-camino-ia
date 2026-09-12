@@ -9,3 +9,9 @@ print("Mi edad es" , edad)
 print("Soy Programador?" , es_programador)
 if edad >= 18: print("Eres mayor de edad")
 else:print("Eres Menor de Edad")
+for numero in range(1, 6):
+    print(numero)
+    productos = ["galletas", "chocolatina", "pasabocas"]
+
+for producto in productos:
+    print("Producto:", producto)
