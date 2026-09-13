@@ -4,6 +4,7 @@ nombre = "GIO"
 edad = 15
 es_programador = True
 
+
 print("Me llamo" , nombre)
 print("Mi edad es" , edad)
 print("Soy Programador?" , es_programador)
@@ -15,3 +16,10 @@ for numero in range(1, 6):
 
 for producto in productos:
     print("Producto:", producto)
+
+bodegas = ["Vine", "Overland" , "Treadway"]
+for bodega in bodegas:
+    print("bodega:" ,bodega)
+
+for numero, bodega in enumerate(bodegas, start=1):
+    print("Bodega", numero, ":", bodega)
