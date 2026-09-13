@@ -59,3 +59,16 @@ while inventario > 0:
     inventario = inventario - 5
 
 print("Inventario agotado")
+
+# ============================================
+# EJERCICIO DE PRACTICA 1
+# ============================================
+
+productos = ["Saltin" , "Festival", "Waffer" , "Tosh" ]
+cantidades = [50, 30, 0, 15]
+for producto, cantidad in zip(productos, cantidades):
+    if cantidad > 0:
+        print("Material", producto , ":" ,cantidad , "Unidades")
+    else:
+        print("Material", producto , ":" ,cantidad , "Agotado")
+        
