@@ -71,4 +71,34 @@ for producto, cantidad in zip(productos, cantidades):
         print("Material", producto , ":" ,cantidad , "Unidades")
     else:
         print("Material", producto , ":" ,cantidad , "Agotado")
-        
+
+# ============================================
+# TEMA 7: Funciones (empaquetar código para reutilizarlo)
+# ============================================
+
+# Definimos la función con "def", le damos un nombre, y un parámetro
+# "edad" es el dato que la función va a recibir cada vez que la llamemos
+def verificar_edad(edad):
+    if edad >= 18:
+        print("Eres mayor de edad")
+    else:
+        print("Eres Menor de Edad")
+
+# Llamamos la función pasándole distintos valores
+# Cada llamada usa el mismo código de adentro, pero con un dato diferente
+verificar_edad(15)
+verificar_edad(30)
+
+# ============================================
+# TEMA 8: Funciones con return (devuelven un valor)
+# ============================================
+
+# A diferencia de print (que solo muestra el resultado),
+# "return" entrega el valor calculado para poder guardarlo y reutilizarlo
+def calcular_total(cantidad1, cantidad2):
+    total = cantidad1 + cantidad2
+    return total
+
+# Guardamos en una variable lo que la función devolvió
+resultado = calcular_total(50, 30)
+print("El total es:", resultado)
