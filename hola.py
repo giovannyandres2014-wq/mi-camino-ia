@@ -23,3 +23,10 @@ for bodega in bodegas:
 
 for numero, bodega in enumerate(bodegas, start=1):
     print("Bodega", numero, ":", bodega)
+    inventario = 20
+
+while inventario > 0:
+    print("Quedan", inventario, "unidades")
+    inventario = inventario - 5
+
+print("Inventario agotado")
