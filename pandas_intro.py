@@ -63,3 +63,13 @@ datos_categoria = pd.DataFrame({
 
 resumen = datos_categoria.groupby("Categoria")["Cantidad"].sum()
 print(resumen)
+
+# ============================================
+# Manejo de errores con try/except
+# ============================================
+
+try:
+    archivo = pd.read_excel("archivo_que_no_existe.xlsx")
+    print(archivo)
+except:
+    print("No se pudo leer el archivo, revisa que el nombre sea correcto")
