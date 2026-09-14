@@ -48,3 +48,18 @@ print("Archivo procesado guardado con éxito")
 ordenado = datos.sort_values("Cantidad", ascending=False)
 print("Inventario ordenado de mayor a menor cantidad:")
 print(ordenado)
+
+# ============================================
+# Agrupar datos (como una tabla dinámica de Excel)
+# ============================================
+
+import pandas as pd
+
+datos_categoria = pd.DataFrame({
+    "Producto": ["Saltin", "Festival", "Waffer", "Tosh", "Ducales", "Noel"],
+    "Categoria": ["Saladas", "Dulces", "Dulces", "Saladas", "Saladas", "Dulces"],
+    "Cantidad": [50, 30, 0, 15, 40, 25]
+})
+
+resumen = datos_categoria.groupby("Categoria")["Cantidad"].sum()
+print(resumen)
