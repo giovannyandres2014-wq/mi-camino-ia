@@ -32,3 +32,19 @@ def estado_producto(cantidad):
 datos["Estado"] = datos["Cantidad"].apply(estado_producto)
 
 print(datos)
+
+# ============================================
+# Guardar el resultado en un nuevo archivo de Excel
+# ============================================
+
+datos.to_excel("inventario_procesado.xlsx", index=False)
+
+print("Archivo procesado guardado con éxito")
+
+# ============================================
+# Ordenar los datos por cantidad
+# ============================================
+
+ordenado = datos.sort_values("Cantidad", ascending=False)
+print("Inventario ordenado de mayor a menor cantidad:")
+print(ordenado)
