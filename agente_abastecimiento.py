@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import anthropic
 import pandas as pd
+import requests
 
 load_dotenv()
 cliente = anthropic.Anthropic()
@@ -19,7 +20,26 @@ def consultar_inventario(producto):
     else:
         return f"{producto}: {cantidad} unidades disponibles."
 
-# Prueba rápida de la mano, sin Claude todavía
+    # Segunda "mano": trae la TRM vigente
+def consultar_trm():
+    url = "https://www.datos.gov.co/resource/32sa-8pi3.json"
+    try:
+        r = requests.get(url, params={"$order": "vigenciadesde DESC", "$limit": 1}, timeout=10)
+        r.raise_for_status()
+        dato = r.json()[0]
+        valor = float(dato["valor"])
+        return f"TRM vigente: {valor:,.2f} COP por USD."
+    except Exception as e:
+        return f"No pude consultar la TRM: {e}"
+    
+def ejecutar_herramienta(nombre, entrada):
+    if nombre == "consultar_inventario":
+        return consultar_inventario(entrada["producto"])
+    elif nombre == "consultar_trm":
+        return consultar_trm()
+    return f"Herramienta desconocida: {nombre}"
+
+
 # El "catálogo": lo que Claude lee para decidir
 herramientas = [
     {
@@ -32,14 +52,18 @@ herramientas = [
             },
             "required": ["producto"]
         }
+    },
+    {
+        "name": "consultar_trm",
+        "description": "Consulta la TRM vigente en Colombia (pesos colombianos por un dólar). Úsala cuando pregunten por el dólar o haya que convertir USD a COP.",
+        "input_schema": {
+            "type": "object",
+            "properties": {}
+        }
     }
 ]
 
-# Los "nervios": leen la orden de Claude y mueven la mano correcta
-def ejecutar_herramienta(nombre, entrada):
-    if nombre == "consultar_inventario":
-        return consultar_inventario(entrada["producto"])
-    return f"Herramienta desconocida: {nombre}"
+
 
 # La conversación arranca con la pregunta del usuario
 instrucciones = """Eres el asistente de abastecimiento de Galletas Noel.
