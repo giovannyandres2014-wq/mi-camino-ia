@@ -8,8 +8,7 @@
 #libro = Workbook()
 
 # Seleccionamos la hoja activa (la primera pestaña)
-#
-# hoja = libro.active
+#hoja = libro.active
 
 # Le ponemos un título a la hoja
 #hoja.title = "Inventario"
@@ -33,14 +32,14 @@
 # # Empezamos en la fila 2, porque la fila 1 ya tiene los encabezados
 # fila = 2
 
- for producto, cantidad in zip(productos, cantidades):
-     hoja.cell(row=fila, column=1, value=producto)
-     hoja.cell(row=fila, column=2, value=cantidad)
-     fila = fila + 1
+# for producto, cantidad in zip(productos, cantidades):
+#     hoja.cell(row=fila, column=1, value=producto)
+#     hoja.cell(row=fila, column=2, value=cantidad)
+#     fila = fila + 1
 
-libro.save("inventario.xlsx")
+# libro.save("inventario.xlsx")
 
-print("Datos agregados con éxito")
+# print("Datos agregados con éxito")
 
 # ============================================
 # Leer un archivo de Excel existente

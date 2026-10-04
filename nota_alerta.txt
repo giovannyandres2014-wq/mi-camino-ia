@@ -1,0 +1,3 @@
+Asunto: Alerta de producto agotado
+
+Jefe de compras: el producto Waffer está agotado (inventario en 0 unidades). Se requiere reponer 20 unidades, a un precio unitario de 3 USD. El costo estimado de la reposición es de 60 USD, equivalentes a COP 196.409,40. Recomiendo aprobar la orden de compra a la brevedad para evitar quiebres en el abastecimiento.
